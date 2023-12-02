@@ -3,69 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Terminal</title>
+    <title>Rainbow Circle</title>
     <style>
-        /* ... (önceki CSS kodu) */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+        }
+
+        .rainbow-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 10px solid transparent;
+            background: conic-gradient(
+                from 0deg,
+                #ff0000 0%,   /* Red */
+                #ff9900 10%,  /* Orange */
+                #ffff00 20%,  /* Yellow */
+                #33cc33 30%,  /* Green */
+                #3399ff 40%,  /* Blue */
+                #9966ff 50%,  /* Purple */
+                #ff00ff 60%,  /* Magenta */
+                #ff6699 70%,  /* Pink */
+                #ff3300 80%,  /* Dark Orange */
+                #ffcc00 90%   /* Gold */
+            );
+            animation: rotateColors 5s linear infinite;
+        }
+
+        @keyframes rotateColors {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="terminal">
-        <div class="header">
-            <span class="button close"></span>
-            <span class="button minimize"></span>
-            <span class="button maximize"></span>
-            <div class="title">Web Terminal</div>
-        </div>
-        <div class="content">
-            <pre id="output"></pre>
-            <div class="input-line">
-                <span class="prompt">$</span>
-                <input type="text" id="input" autocomplete="off">
-            </div>
-        </div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputElement = document.getElementById('input');
-            const outputElement = document.getElementById('output');
-
-            inputElement.addEventListener('keydown', function(event) {
-                if (event.key === 'Enter') {
-                    event.preventDefault();
-                    const command = inputElement.value;
-                    inputElement.value = '';
-                    executeCommand(command);
-                }
-            });
-
-            function executeCommand(command) {
-                const commandLowerCase = command.toLowerCase();
-
-                switch (commandLowerCase) {
-                    case 'help':
-                        outputElement.textContent += getHelpText();
-                        break;
-                    case 'clear':
-                        outputElement.textContent = '';
-                        break;
-                    case 'date':
-                        outputElement.textContent += (new Date()).toString() + '\n';
-                        break;
-                    default:
-                        outputElement.textContent += '$ ' + command + '\nCommand not recognized.\n';
-                        break;
-                }
-
-                outputElement.scrollTop = outputElement.scrollHeight;
-            }
-
-            function getHelpText() {
-                return 'Available Commands:\n' +
-                       '  help   - Show this help message\n' +
-                       '  clear  - Clear the terminal\n' +
-                       '  date   - Display current date and time\n';
-            }
-        });
-    </script>
+    <div class="rainbow-circle"></div>
 </body>
 </html>
