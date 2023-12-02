@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Türk Bayrağı</title>
+</head>
+<body>
+  <canvas id="turkBayragi" width="300" height="200"></canvas>
+
+  <script>
+    // Canvas elementini seç
+    const canvas = document.getElementById("turkBayragi");
+    const ctx = canvas.getContext("2d");
+
+    // Türk bayrağı renkleri
+    const beyazRenk = "#FFFFFF";
+    const kirmiziRenk = "#E30A17";
+
+    // Beyaz zemin
+    ctx.fillStyle = beyazRenk;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Kırmızı şeritler
+    ctx.fillStyle = kirmiziRenk;
+    ctx.fillRect(0, 60, canvas.width, 40);
+    ctx.fillRect(100, 0, 20, canvas.height);
+  </script>
+</body>
+</html>
