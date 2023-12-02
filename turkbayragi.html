@@ -23,6 +23,25 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
         .food-item {
             display: flex;
             justify-content: space-between;
@@ -52,10 +71,23 @@
         h3 {
             color: #777;
         }
+
+        .balance {
+            margin-top: 20px;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
     <div id="menu">
+        <div class="user-info">
+            <img src="profile.jpg" alt="Profil Resmi">
+            <div class="user-details">
+                <h2>Kullanıcı Adı: John Doe</h2>
+                <h3>Bakiye: $50</h3>
+            </div>
+        </div>
+
         <div class="food-item">
             <img src="pizza.jpg" alt="Pizza">
             <div class="food-details">
@@ -90,6 +122,10 @@
                 <h3>Restoran: İçecek Dünyası</h3>
                 <h3>Fiyat: $2</h3>
             </div>
+        </div>
+
+        <div class="balance">
+            <h3>Toplam Bakiye: $50</h3>
         </div>
     </div>
 </body>
